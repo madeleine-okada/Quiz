@@ -35,11 +35,22 @@ const perguntas = [
 let atual = 0;
 let perguntaAtual;
 
-function mostraPergunta(){
+function mostraPergunta() {
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
-function mostraAlternativa() {}
-mostraPergunta();
-
-
+    mostraAlternativas();
 }
+  
+function mostraAlternativas() {
+  for (const alternativa of perguntaAtual.alternativas) {
+  const botaoAlternativa = document.creatElement("button");
+  botaoAlternativa.textContent = alternativa.texto;
+  botaoAlternativa.addEventListener("click", function(){
+    atual++;
+    mostraPergunta();
+  })
+    caixaAlternativas.appendChild(botaoAlternativas);
+  }
+}
+
+mostraPergunta(); 
