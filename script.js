@@ -1,39 +1,40 @@
-0const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
+const pergunta1 = "Pergunta 1";
+const pergunta2 = "Pergunta 2";
+const pergunta3 = "Perfunta 3";
+const pergunta4 = "Pergunta 4";
+const pergunta5 = "Pergunta 5";
 const perguntas = [
   {
     enunciado: "Pergunta 1",
-    alternativas: ["Alternativa 1",
-                   "Alternativa 2"]
+    alternativas: ["Alternativa 1", "Alternativa 2"]
   },
   {
     enunciado: "Pergunta 2",
-    alternativas: ["Alternativa 1",
-                   "Alternativa 2"]
+    alternativas: ["Alternativa 1", "Alternativa 2"]
   },
     {
     enunciado: "Pergunta 3",
-    alternativas: ["Alternativa 1",
-                   "Alternativa 2"]
+    alternativas: ["Alternativa 1", "Alternativa 2"]
   },
     {
     enunciado: "Pergunta 4",
-    alternativas: ["Alternativa 1",
-                   "Alternativa 2"]
+    alternativas: ["Alternativa 1", "Alternativa 2"]
   },
     {
     enunciado: "Pergunta 5",
-    alternativas: ["Alternativa 1",
-                   "Alternativa 2"]
+    alternativas: ["Alternativa 1", "Alternativa 2"]
   },
 ]; 
 
 let atual = 0;
 let perguntaAtual;
+let historiaFinal = "";
 
 function mostraPergunta() {
     perguntaAtual = perguntas[atual];
@@ -45,7 +46,7 @@ function mostraAlternativas() {
   for (const alternativa of perguntaAtual.alternativas) {
   const botaoAlternativa = document.creatElement("button");
   botaoAlternativa.textContent = alternativa.texto;
-  botaoAlternativa.addEventListener("click", ALTERE AQQQQQQ  (){
+  botaoAlternativa.addEventListener("click", () => respostaSelecionada(opcao));{
     atual++;
     mostraPergunta();
   })
@@ -53,4 +54,10 @@ function mostraAlternativas() {
   }
 }
 
+function respostaSelecionada(opcaoSelecionada) {
+  const afirmacoes = opcaoSelecionada.afirmacoes;
+  historiaFinal += afirmacoes +"";
+  atual++;
+  mostraPergunta();
+}
 mostraPergunta(); 
