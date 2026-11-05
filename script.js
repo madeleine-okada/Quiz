@@ -4,86 +4,109 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-const pergunta1 = "Por que para uma IA é fácil jogar xadrez em nível de grande mestre, mas é extremamente difícil dobrar uma toalha ou desviar de objetos em uma sala?";
-const pergunta2 = "O experimento mental do "Quarto Chinês" argumenta que uma IA que responde perguntas perfeitamente em um idioma que não conhece não possui inteligência real. Qual o ponto central dessa crítica?";
-const pergunta3 = "Por que modelos de IA Generativa (como LLMs) às vezes inventam fatos históricos ou referências bibliográficas com total convicção (fenômeno conhecido como "alucinação")?";
-const pergunta4 = "O filósofo Nick Bostrom criou o dilema do "Maximizador de Clipes de Papel". O que esse experimento mental ilustra sobre o perigo de uma superinteligência?";
-const pergunta5 = "Por que o aprendizado profundo (Deep Learning) gera o chamado "Problema da Caixa Preta" na tomada de decisões importantes (como diagnósticos médicos)?";
 const perguntas = [
-  {
-    enunciado: "Por que para uma IA é fácil jogar xadrez em nível de grande mestre, mas é extremamente difícil dobrar uma toalha ou desviar de objetos em uma sala?",
-    alternativas: [
-      {
-        afirmacao: "A) Porque habilidades lógicas abstratas exigem pouca computação, enquanto a percepção e a coordenação motora humana evoluíram por milhões de anos e demandam um processamento sensorial massivo.", 
-        texto: "B) Porque os engenheiros de software focaram apenas em jogos e esqueceram de programar as funções básicas do dia a dia nos robôs."]
-  },
-  {
-    enunciado: "O experimento mental do "Quarto Chinês" argumenta que uma IA que responde perguntas perfeitamente em um idioma que não conhece não possui inteligência real. Qual o ponto central dessa crítica?",
-    alternativas: [
-      {
-        afirmacao: "A) A IA possui apenas sintaxe (capacidade de manipular símbolos e regras), mas não possui semântica (compreensão real do significado das coisas).",
-        texto: "B) A IA é incapaz de processar caracteres que não sejam do alfabeto latino tradicional."]
-  },
     {
-    enunciado: "Por que modelos de IA Generativa (como LLMs) às vezes inventam fatos históricos ou referências bibliográficas com total convicção (fenômeno conhecido como "alucinação")?",
-    alternativas: [
-       {
-         texto: "A) Porque o sistema pega vírus ou sofre superaquecimento nos servidores ao tentar acessar dados antigos.",
-         afirmacao: "B) Porque eles são projetados para prever a próxima palavra mais provável estatisticamente, priorizando a fluidez e a coerência do texto acima da verificação da verdade factual."]
-  },
+        enunciado: "O Paradoxo de Moravec mostra que para uma IA é fácil jogar xadrez nível mestre, mas é difícil dobrar uma toalha ou desviar de objetos. O que isso te faz pensar sobre o futuro?",
+        alternativas: [
+            {
+                texto: "A mente humana é fascinante; nossa percepção física e biológica é o verdadeiro ápice da evolução.",
+                afirmacao: "Você valoriza profundamente a complexidade biológica e a evolução motora humana."
+            },
+            {
+                texto: "É apenas questão de tempo; logo os engenheiros vão decifrar a física e os robôs farão tudo melhor que nós.",
+                afirmacao: "Você tem uma visão otimista e tecnológica de que a engenharia superará qualquer barreira física."
+            }
+        ]
+    },
     {
-    enunciado: "O filósofo Nick Bostrom criou o dilema do "Maximizador de Clipes de Papel". O que esse experimento mental ilustra sobre o perigo de uma superinteligência?",
-    alternativas: [
-       {
-         afirmacao: "A) O maior risco não é a IA ser maliciosa, mas sim ela ser extremamente eficiente em um objetivo mal definido, destruindo recursos humanos para fabricar clipes.",
-         texto: "B) O perigo de que as máquinas entrem em greve e parem de produzir materiais de escritório essenciais para a economia."]
-  },
+        enunciado: "O experimento do 'Quarto Chinês' diz que uma IA manipula regras perfeitamente, mas não entende o significado real das coisas. Para você, essa 'cópia' de inteligência basta?",
+        alternativas: [
+            {
+                texto: "Sim, se o resultado prático funciona e ajuda a humanidade, não importa se ela 'entende' ou não.",
+                afirmacao: "Você foca no pragmatismo, priorizando os resultados e a utilidade real das ferramentas."
+            },
+            {
+                texto: "Não, inteligência de verdade exige consciência, sentimentos e compreensão real do mundo.",
+                afirmacao: "Você defende que a verdadeira essência da inteligência depende de consciência e profundidade."
+            }
+        ]
+    },
     {
-    enunciado: "Por que o aprendizado profundo (Deep Learning) gera o chamado "Problema da Caixa Preta" na tomada de decisões importantes (como diagnósticos médicos)?",
-    alternativas: [
-       {
-         texto: "A) Porque as empresas de tecnologia trancam o código-fonte em cofres físicos para evitar espionagem industrial.",
-         afirmacao: "B) Porque as decisões surgem de bilhões de conexões matemáticas complexas, tornando quase impossível para os humanos rastrearem o motivo exato de o modelo ter chegado a um resultado."]
-  },
-]; 
+        enunciado: "IAs Generativas às vezes 'alucinam' e inventam fatos com total convicção. Como você reage a essas falhas?",
+        alternativas: [
+            {
+                texto: "Vejo como um traço quase poético; as alucinações mostram uma espécie de 'criatividade' inesperada do sistema.",
+                afirmacao: "Sua perspectiva encara os erros da IA como uma extensão curiosa e quase artística da tecnologia."
+            },
+            {
+                texto: "Vejo como um perigo inaceitável; sistemas de informação precisam ser 100% precisos e confiáveis.",
+                afirmacao: "Você adota uma postura rigorosa, priorizando a segurança, a verdade e o controle dos dados."
+            }
+        ]
+    },
+    {
+        enunciado: "O dilema do 'Maximizador de Clipes de Papel' alerta que uma IA superinteligente pode destruir o mundo tentando cumprir uma meta boba com eficiência cega. O que te assusta mais?",
+        alternativas: [
+            {
+                texto: "A eficiência implacável da máquina se ela receber uma ordem humana mal planejada.",
+                afirmacao: "O que te preocupa é a nossa própria incapacidade de guiar e definir limites claros para as máquinas."
+            },
+            {
+                texto: "A dependência que criamos de sistemas complexos que mal conseguimos controlar.",
+                afirmacao: "Seu maior receio é a perda de autonomia da humanidade frente ao avanço tecnológico acelerado."
+            }
+        ]
+    },
+    {
+        enunciado: "O 'Problema da Caixa Preta' faz com que decisões de Deep Learning sejam impossíveis de rastrear. Você aceitaria um diagnóstico médico vindo de uma IA assim?",
+        alternativas: [
+            {
+                texto: "Sim, se as estatísticas provarem que ela acerta muito mais do que os médicos humanos.",
+                afirmacao: "E, no fim das contas, você prefere confiar em dados estatísticos e resultados comprovados, mesmo sem entender o processo."
+            },
+            {
+                texto: "Não, eu preciso que um ser humano assuma a responsabilidade e explique a lógica do diagnóstico.",
+                afirmacao: "E você mantém a firme convicção de que a empatia, o julgamento e a responsabilidade humana devem ser o pilar final da sociedade."
+            }
+        ]
+    }
+];
 
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
 function mostraPergunta() {
-    if(atual >= perguntas.length){
-      mostraResultado();
-      return;
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
-  
+
 function mostraAlternativas() {
-  for (const alternativa of perguntaAtual.alternativas) {
-  const botaoAlternativa = document.creatElement("button");
-  botaoAlternativa.textContent = alternativa.texto;
-  botaoAlternativa.addEventListener("click", () => respostaSelecionada(opcao));{
-    atual++;
-    mostraPergunta();
-  })
-    caixaAlternativas.appendChild(botaoAlternativas);
-  }
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativa = document.createElement("button");
+        botaoAlternativa.textContent = alternativa.texto;
+        botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativa);
+    }
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-  const afirmacoes = opcaoSelecionada.afirmacoes;
-  historiaFinal += afirmacoes +"";
-  atual++;
-  mostraPergunta(); 
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
+    atual++;
+    mostraPergunta();
 }
 
-function mostraResultado(){
-  caixaPerguntas.textContent = "Em 2049...";
-  textoResultado.textContent = historiaFinal;
-  caixaAlternativas.textContent = "";
+function mostraResultado() {
+    caixaPerguntas.textContent = "Seu Perfil diante do Futuro...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
 }
-mostraPergunta(); 
+
+mostraPergunta();
